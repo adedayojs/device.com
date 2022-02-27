@@ -1,0 +1,38 @@
+.input-wrap {
+  display: flex;
+  border-radius: 5px;
+  padding: 1px 10px;
+  flex-direction: row;
+  box-sizing: border-box;
+  background: #fff;
+
+  .icon {
+    width: 20px;
+    text-align: center;
+    padding-left: 5px;
+    padding-right: 5px;
+    align-self: center;
+  }
+
+  input {
+    border: none;
+    outline: none;
+    height: 100%;
+    margin: 1px 0;
+    padding: 12px 4px;
+    box-sizing: border-box;
+    font-size: 16px;
+    width: 100%;
+  }
+}
+
+section {
+  grid-template-columns: auto 10%;
+  padding: 16px;
+  background: lavender;
+  p {
+    text-align: center;
+    color: blue;
+    min-width: min-content;
+  }
+}
