@@ -1,4 +1,5 @@
 export interface IDevice {
+  id: number;
   name: string;
   status: string;
   temperature: string;

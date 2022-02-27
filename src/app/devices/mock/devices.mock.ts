@@ -2,6 +2,7 @@ import { IDevice } from 'src/app/core/models/device.model';
 
 export const devices: Array<IDevice> = [
   {
+    id: 1,
     name: 'Device 1',
     status: 'Available',
     temperature: 'string',
@@ -15,6 +16,7 @@ export const devices: Array<IDevice> = [
     isOnline: true,
   },
   {
+    id: 2,
     name: 'Device 2',
     status: 'Offline',
     temperature: 'string',
@@ -28,6 +30,7 @@ export const devices: Array<IDevice> = [
     isOnline: true,
   },
   {
+    id: 3,
     name: 'Device 2',
     status: 'Hibernation',
     temperature: 'string',
