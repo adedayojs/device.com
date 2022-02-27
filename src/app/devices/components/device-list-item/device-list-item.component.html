@@ -1,0 +1,16 @@
+<div *ngIf="device" class="list-item grid">
+  <div class="flex-center">
+    <img [src]="imageUrl" />
+  </div>
+
+  <div>
+    <h4>{{ device.name }}</h4>
+    <p>Status: {{ device.status || "N/A" }}</p>
+  </div>
+
+  <div class="flex-center" *ngIf="showInfo">
+    <mat-icon (click)="emitInfo()" class="material-icons icon pointer"
+      >info</mat-icon
+    >
+  </div>
+</div>

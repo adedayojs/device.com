@@ -1,0 +1,10 @@
+.list-item {
+  background-color: lavender;
+  grid-template-columns: 20% auto 12%;
+  &:hover {
+    opacity: 0.8;
+  }
+  img {
+    max-width: 30px;
+  }
+}
