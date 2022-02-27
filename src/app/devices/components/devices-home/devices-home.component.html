@@ -1,3 +1,25 @@
 <main class="flex-center">
-  <app-search class="full-width"></app-search>
+  <div class="full-width">
+    <app-search></app-search>
+    <div class="list-section">
+      <ng-container
+        [ngTemplateOutlet]="devices.length > 0 ? devicesRef : noDevicesRef"
+      ></ng-container>
+    </div>
+  </div>
 </main>
+
+<ng-template #devicesRef>
+  <div class="devices pointer" *ngFor="let device of devices">
+    <app-device-list-item
+      [device]="device"
+      [showInfo]="true"
+    ></app-device-list-item>
+  </div>
+</ng-template>
+
+<ng-template #noDevicesRef>
+  <div class="flex-center">
+    <app-loading></app-loading>
+  </div>
+</ng-template>
