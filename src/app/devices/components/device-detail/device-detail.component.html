@@ -1,1 +1,31 @@
-<p>device-detail works!</p>
+<section class="grid">
+  <div class="related">
+    <header>
+      <h3>Related Devices</h3>
+    </header>
+    <div class="related__items"></div>
+  </div>
+
+  <ng-container
+    [ngTemplateOutlet]="device ? deviceRef : noDeviceRef"
+  ></ng-container>
+</section>
+
+<ng-template #deviceRef>
+  <div class="device">
+    <header>
+      <h3>Details</h3>
+    </header>
+    <div class="device__detail"></div>
+  </div>
+</ng-template>
+<ng-template #noDeviceRef>
+  <div>
+    <header>
+      <h3>Details</h3>
+    </header>
+    <div class="flex-center">
+      <h2>Device Info Not Found</h2>
+    </div>
+  </div>
+</ng-template>
