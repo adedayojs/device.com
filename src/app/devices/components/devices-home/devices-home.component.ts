@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { IDevice } from 'src/app/core/models/device.model';
 import { DeviceService } from '../../service/device.service';
 
@@ -8,7 +9,7 @@ import { DeviceService } from '../../service/device.service';
   styleUrls: ['./devices-home.component.scss'],
 })
 export class DevicesHomeComponent implements OnInit {
-  constructor(private deviceService: DeviceService) {}
+  constructor(private deviceService: DeviceService, private router: Router) {}
 
   devices: IDevice[] = [];
 
@@ -20,5 +21,9 @@ export class DevicesHomeComponent implements OnInit {
     this.deviceService.fetchAllDevices().subscribe((res) => {
       this.devices = res;
     });
+  }
+
+  navigate(id: number) {
+    this.router.navigate(['devices', id]);
   }
 }

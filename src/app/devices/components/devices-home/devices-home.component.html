@@ -8,7 +8,7 @@
   <div
     class="devices pointer"
     *ngFor="let device of devices"
-    [routerLink]="device.id + ''"
+    (click)="navigate(device.id)"
   >
     <app-device-list-item
       [device]="device"
