@@ -1,38 +1,46 @@
-<section class="grid">
-  <div class="related">
-    <header>
-      <h1>Related Devices</h1>
-    </header>
-    <app-loading *ngIf="loading"></app-loading>
-    <div *ngIf="!loading" class="related__items">
-      <div
-        class="devices pointer"
-        *ngFor="let device of relatedDevices"
-        (click)="navigate(device.id)"
-      >
-        <app-device-list-item
-          [device]="device"
-          [showInfo]="true"
-        ></app-device-list-item>
+<main class="flex-center">
+  <div class="full-width">
+    <app-search></app-search>
+    <section *ngIf="!loading" class="grid">
+      <div class="related">
+        <header>
+          <h1>Related Devices</h1>
+        </header>
+        <div class="related__items">
+          <div
+            class="devices pointer"
+            *ngFor="let device of relatedDevices"
+            (click)="navigate(device.id)"
+          >
+            <app-device-list-item
+              [device]="device"
+              [showInfo]="true"
+            ></app-device-list-item>
+          </div>
+        </div>
       </div>
+
+      <ng-container
+        [ngTemplateOutlet]="device ? deviceRef : noDeviceRef"
+      ></ng-container>
+    </section>
+
+    <div *ngIf="loading" class="flex-center">
+      <app-loading></app-loading>
     </div>
   </div>
-
-  <ng-container
-    [ngTemplateOutlet]="device ? deviceRef : noDeviceRef"
-  ></ng-container>
-</section>
+</main>
 
 <ng-template #deviceRef>
   <div class="device">
     <header>
-      <h1>Details:  {{device?.name}}</h1>
+      <h1>Details: {{ device?.name }}</h1>
     </header>
     <div class="device__detail">
-      <p><span>Status: </span>{{device?.status}} </p>
-      <p><span>Temperature: </span>{{device?.temperature}} </p>
-      <p><span>Os: </span>{{device?.os}} </p>
-      <p><span>Online: </span>{{device?.isOnline}} </p>
+      <p><span>Status: </span>{{ device?.status }}</p>
+      <p><span>Temperature: </span>{{ device?.temperature }}</p>
+      <p><span>Os: </span>{{ device?.os }}</p>
+      <p><span>Online: </span>{{ device?.isOnline }}</p>
     </div>
   </div>
 </ng-template>

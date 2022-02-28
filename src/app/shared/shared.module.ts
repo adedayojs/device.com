@@ -4,6 +4,7 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 import { SearchComponent } from './components/search/search.component';
 import { MatIconModule } from '@angular/material/icon';
 import { LoadingComponent } from './components/loading/loading.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [NotFoundComponent, SearchComponent, LoadingComponent],
@@ -13,6 +14,6 @@ import { LoadingComponent } from './components/loading/loading.component';
     MatIconModule,
     LoadingComponent,
   ],
-  imports: [CommonModule, MatIconModule],
+  imports: [CommonModule, MatIconModule, FormsModule, ReactiveFormsModule],
 })
 export class SharedModule {}

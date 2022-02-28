@@ -12,6 +12,8 @@ export class DevicesHomeComponent implements OnInit {
   constructor(private deviceService: DeviceService, private router: Router) {}
 
   devices: IDevice[] = [];
+  filteredDevices: IDevice[] = [];
+  loading = true
 
   ngOnInit(): void {
     this.getAllDevicesForUser();
@@ -20,10 +22,18 @@ export class DevicesHomeComponent implements OnInit {
   getAllDevicesForUser() {
     this.deviceService.fetchAllDevices().subscribe((res) => {
       this.devices = res;
+      this.filter('');
+      this.loading = false
     });
   }
 
   navigate(id: number) {
     this.router.navigate(['devices', id]);
+  }
+
+  filter(val: string) {
+    this.filteredDevices = this.devices.filter((device) =>
+      new RegExp(val, 'gi').test(device.name)
+    );
   }
 }

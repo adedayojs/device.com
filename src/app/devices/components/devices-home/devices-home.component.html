@@ -1,13 +1,21 @@
-<div class="list-section">
-  <ng-container
-    [ngTemplateOutlet]="devices.length > 0 ? devicesRef : noDevicesRef"
-  ></ng-container>
-</div>
+<main class="flex-center">
+  <div class="full-width">
+    <app-search (currentValue)="filter($event)"></app-search>
+
+    <div class="list-section">
+      <ng-container
+        [ngTemplateOutlet]="
+          filteredDevices.length > 0 ? devicesRef : noDevicesRef
+        "
+      ></ng-container>
+    </div>
+  </div>
+</main>
 
 <ng-template #devicesRef>
   <div
     class="devices pointer"
-    *ngFor="let device of devices"
+    *ngFor="let device of filteredDevices"
     (click)="navigate(device.id)"
   >
     <app-device-list-item
@@ -19,6 +27,7 @@
 
 <ng-template #noDevicesRef>
   <div class="flex-center">
-    <app-loading></app-loading>
+    <app-loading *ngIf="loading"></app-loading>
+    <h2 *ngIf="!loading">No Devices found</h2>
   </div>
 </ng-template>
